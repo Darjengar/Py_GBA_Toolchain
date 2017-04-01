@@ -7,7 +7,7 @@ Created on 10.03.2017
 import argparse, numpy
 
 #variables
-x = 0
+byteCount = 0
 
 #parse arguments
 parser = argparse.ArgumentParser(description="Transform binary data into assembly file")
@@ -32,15 +32,19 @@ args.output_file.write(args.symbol + '_bin' + ':\n')
 
 #write assembly data in file
 for i in range(len(txt_bin_block)):
-    if (x % 16) == 0:
+    #if 16 bytes in one line
+    if (byteCount % 32) == 0:
         args.output_file.write('\n\t.byte ' + '0x' + txt_bin_block[i])
+    #if first number of byte
     elif (i % 2) == 0:
         args.output_file.write('0x' + txt_bin_block[i])
-    elif (i != len(txt_bin_block) - 1) and ((x + 1) % 16 != 0):
+    #if not last byte of file and if not last byte of line
+    elif (i != len(txt_bin_block) - 1) and ((byteCount + 1) % 32 != 0):
         args.output_file.write(txt_bin_block[i] + ', ')
+    #else write number
     else:
         args.output_file.write(txt_bin_block[i])
-    x += 1
+    byteCount += 1
     
 args.output_file.close()
 
