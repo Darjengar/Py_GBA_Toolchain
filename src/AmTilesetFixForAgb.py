@@ -4,7 +4,8 @@ Created on 17.03.2017
 @author: HunterxPokemon
 '''
 
-import argparse, os
+import argparse
+import os
 
 #parse arguments
 parser = argparse.ArgumentParser(description='Fix Am Block and Behavior Data')

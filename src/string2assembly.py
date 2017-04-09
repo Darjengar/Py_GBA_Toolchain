@@ -1,5 +1,8 @@
 #HunterxPokemon 2017
-import sys, argparse, time, os
+import sys 
+import argparse 
+import time 
+
 #
 #TODO: optimize the code
 #
@@ -85,7 +88,6 @@ for i in range(len(stringTable)):
     string = stringTable[i]
     j = 0
     while j < len(string):
-        print('j ist gleich ',j)
         if string[j] == '\\':
             if string[j + 1] == 'h':
                 escapeChar = string[j] + string[j + 1] + string[j + 2] + string[j + 3]
@@ -145,5 +147,6 @@ for i in range(len(byteBlockTable)):
             outfile.write(byteBlockTable[i][j])
         byteCount += 1
 
+outfile.close()
 #print compile time
 print('\n------ %s seconds ------' % (time.time() - start_time) )
