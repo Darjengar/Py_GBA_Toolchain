@@ -4,7 +4,8 @@ Created on 17.03.2017
 @author: HunterxPokemon
 '''
 
-import argparse, os
+import argparse
+import os
 
 #variables
 start_index = 20
