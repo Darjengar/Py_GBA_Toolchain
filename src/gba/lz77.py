@@ -4,6 +4,8 @@
 @brief module with graphic functions
 
 """
+import error_handling
+
 
 #variables 
 outputBytes = []
@@ -15,6 +17,8 @@ k = 0
 #static variables
 MASK1 = 0b000001
 MASK2 = 0xFFF
+
+MAXIMUM_GRAPHIC_SIZE = 20480
 
 #functions
 def littleEndian( codeBlock ):
@@ -39,10 +43,20 @@ def lz77Decompress( gba_file, startOffset ):
     in_gba_file = open(gba_file, 'rb')
     #goto graphic adress
     in_gba_file.seek(startOffset)
-    #read color of graphic
-    color = int.from_bytes(in_gba_file.read(1), byteorder='big')
-    #read size of graphic
-    size = int.from_bytes(littleEndian(in_gba_file.read(3)), byteorder='big')
+    
+    #Check if the format of the graphic is lz77 compressed
+    try:
+        #read color of graphic
+        color = int.from_bytes(in_gba_file.read(1), byteorder='big')
+        if not color == 16 or color == 256:
+            raise error_handling.Lz77CompressedError
+        #read size of graphic
+        size = int.from_bytes(littleEndian(in_gba_file.read(3)), byteorder='big')
+        if not size <= MAXIMUM_GRAPHIC_SIZE:
+            raise error_handling.Lz77CompressedError
+    except error_handling.Lz77CompressedError:
+        print('Lz77CompressedError: Graphic is not Lz77 compressed')
+    
     
     #begin of lz77 algorithm
     while len(outputBytes) < size:
