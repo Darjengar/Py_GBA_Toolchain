@@ -1,14 +1,14 @@
 #HunterxPokemon 2017
 
 import sys
-
+sys.path.append('c:/users/hunterxpokemon/documents/workspace/python/py_gba_tools/src/gba')
+import lz77
 import argparse
-from gba import lz77
 
 #parse arguments
 parser = argparse.ArgumentParser(description='Tool to decompress LZ77 graphics.')
 parser.add_argument('inGbaFile', type=str, help='Input: GBA File')
-parser.add_argument('startOffset', type=int, help='Input: Start Offset of the LZ77 graphic')
+parser.add_argument('startOffset', type=lambda x: int(x,0), help='Input: Start Offset of the LZ77 graphic')
 parser.add_argument('outGraphic', type=str, help='Ouput: Binary File ')
 
 args = parser.parse_args()
