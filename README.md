@@ -1,5 +1,5 @@
 
-# py_gba_tools
+# Py GBA Toolchain
 GBA Tool Chain
 
 Binary2Assembly:
