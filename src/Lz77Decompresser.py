@@ -2,7 +2,8 @@
 
 import sys
 sys.path.append('c:/users/hunterxpokemon/documents/workspace/python/py_gba_tools/src/gba')
-import lz77
+
+from graphic import lz77
 import argparse
 
 #parse arguments

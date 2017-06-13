@@ -4,6 +4,9 @@
 @brief module with graphic functions
 
 """
+import sys
+sys.path.append('c:/users/hunterxpokemon/documents/workspace/python/py_gba_tools/src/gba')
+
 import error_handling
 
 
