@@ -1,11 +1,11 @@
-#Author    : HunterxPokemon
-#Date      : 04.04.2017
-#Title     : lz77 decompression
-#Brief     : tool to decompress gba graphics
+## Author    : HunterxPokemon
+#  Date      : 04.04.2017
+#  Title     : lz77 decompression
+#  Brief     : tool to decompress gba graphics
 
 import argparse
 
-#parse arguments
+# parse arguments
 parser = argparse.ArgumentParser(description='lz77 decompress tool for gba')
 parser.add_argument('in_gba', type=str, help='GBA ROM File')
 parser.add_argument('in_offset_graphic', type=str, help='Offset Adress of lz77 Compressed Graphic in ROM')

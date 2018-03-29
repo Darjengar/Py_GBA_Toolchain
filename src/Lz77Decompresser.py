@@ -1,7 +1,7 @@
 #HunterxPokemon 2017
 
 import sys
-sys.path.append('c:/users/hunterxpokemon/documents/workspace/python/py_gba_tools/src/gba')
+sys.path.append('c:/users/hunterxpokemon/documents/github/py_gba_toolchain/src/py_def/gba')
 
 from graphic import lz77
 import argparse

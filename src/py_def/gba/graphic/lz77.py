@@ -5,10 +5,8 @@
 
 """
 import sys
-sys.path.append('c:/users/hunterxpokemon/documents/workspace/python/py_gba_tools/src/gba')
-
+sys.path.append('C:/Users/HunterxPokemon/Documents/GitHub/Py_GBA_Toolchain/src/py_def/gba')
 import error_handling
-
 
 #variables 
 outputBytes = []

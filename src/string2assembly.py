@@ -1,8 +1,5 @@
 #HunterxPokemon 2017
-import sys 
-import argparse 
-import time 
-
+import sys, argparse, time, os
 #
 #TODO: optimize the code
 #
@@ -51,7 +48,7 @@ for i in range(len(line)):
     #if line begin with '//' then ignore the line
     if line[i].startswith('//'):
         continue
-    string = line[i].strip('\n').split('=',maxsplit=1)
+    string = line[i].strip('\n').split('=', 1)
     for j in range(len(string)):
         if j < 1:
             symbolTable.append(string[j])
@@ -69,7 +66,7 @@ for i in range(len(line)):
     if line[i].startswith('//'):
         continue
     #remove newline and split string into two pieces between '='
-    string = line[i].strip('\n').split('=',maxsplit=1)
+    string = line[i].strip('\n').split('=', 1)
     #create alphabet and hex table for string encoding
     for j in range(len(string)):
         #if index 0 then add the string to alphabetTable 
@@ -147,6 +144,5 @@ for i in range(len(byteBlockTable)):
             outfile.write(byteBlockTable[i][j])
         byteCount += 1
 
-outfile.close()
 #print compile time
 print('\n------ %s seconds ------' % (time.time() - start_time) )
