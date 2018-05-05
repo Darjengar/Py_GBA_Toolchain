@@ -64,7 +64,7 @@ parser.add_argument('in_str_file', type=str, help='Strasm File')
 parser.add_argument('in_charmap_file', type=str, help='Charmap File')
 parser.add_argument('out_file', type=str, help='Output File')
 # parser.add_argument('-c', action='store_true')
-args = parser.parse_args(["test_string.str", "charmap.chmp", "test_string.c"])
+args = parser.parse_args()
 
 def strasm_interpreter(file_list):
     print("Start Strasm interpreter")
@@ -88,7 +88,7 @@ def strasm_interpreter(file_list):
     for i in range(len(file_list)):
         if(file_list[i] == '\n' or file_list[i].startswith('//')):
             continue
-        sg_line += file_list[i].strip('\n').lstrip(' ')
+        sg_line += file_list[i].strip('\n').strip('\r').lstrip(' ').lstrip('\t')
 
     try:
         new_string = sg_line.split(';')
@@ -217,6 +217,7 @@ def str2bytes(string, byteBlockTable, dictCharmap, type):
                     byteBlock.append(dictCharmap[string[j]])
                     #if KeyError print error message and exit the program with error 1
                 except KeyError:
+                    print(string)
                     print('KeyError: No such character in charmap: %s' % (string[j]))
                     sys.exit(3)
             j += 1
