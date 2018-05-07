@@ -1,0 +1,58 @@
+Strasm syntax:
+    Types:
+        str     normal string
+        tbl     array of strings
+    Operators:
+        $       type operator
+        =       symbol assignment operator
+    Format:
+        {       open strasm element block
+        }       close strasm element block
+        "       define string open/close
+        ;       seperate strasm element blocks
+        [+]     add entry to strasm array
+        
+
+Strasm element:
+    $type symbol = {"string"}
+
+String table
+
+$tbl symbol = {
+    "
+        Nachricht
+        Megalovania
+        
+        [+]
+        
+        Undertale
+    "
+}
+
+Multiple line string
+
+$str symbol = { 
+    "
+        hello\n
+        world
+    "
+}
+
+One line string
+
+$tbl symbol = {"string" [+] "string" [+] "string "}
+
+One line string table 
+
+$str symbol = {"string"}
+
+Mulitple strasm elements in one file:
+    Element 1:
+        $type symbol = {"string"};
+    Element 2:
+        $type symbol = {"string"}
+
+DataTypeOpError: You forgot the data type keyword '$'!
+DataTypeError: The data type '...' is unknown!
+SymbolError: You forgot to reference the string with a symbol!
+SymbolOpError: You forgot the symbol operator '='!

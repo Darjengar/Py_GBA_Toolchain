@@ -1,4 +1,3 @@
-
 # Py GBA Toolchain
 GBA Tool Chain
 
@@ -13,3 +12,5 @@ Fix the Am Map data to AGB format and save as binary file.
 
 AmTilesetFixForAgb
 Fix the Am block and behavior data to AGB format and save as binary file.
+
+For more details go into the manual folder.
